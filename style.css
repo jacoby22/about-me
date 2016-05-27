@@ -1,1 +1,15 @@
 /*lab assignment #1 css file*/
+body {
+  background-color: #C0C0C0;
+}
+h1 {
+  text-align: center;
+  font-size: 64;
+  font-family: sans-serif;
+}
+h2 {
+  font-family: sans-serif;
+}
+ul {
+  list-style-type: circle;
+}
