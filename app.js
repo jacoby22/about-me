@@ -5,7 +5,8 @@ var correctAnswers = [
                       ["no", "n"],
                       ["no", "n"],
                       ["no", "n"],
-                      [47]
+                      [47],
+                      ["washington", "california", "idaho", "florida", "illinois", "oregon"]
                                   ];
 // Creates array of all user answers
 var answers = [];
@@ -38,7 +39,7 @@ for (var i = 1; i < 5; i++) {
 }
 //variable for storing the allowable number of user guesses
 var allowedGuesses = 4;
-var question5 = document.getElementById(""+i+"");
+var question5 = document.getElementById(5);
 for (var i = 0; i < allowedGuesses; i++) {
 //cast user input into an integer for comparing against stored correct int value
   var userGuess = parseInt(prompt(question5.textContent));
@@ -56,5 +57,19 @@ for (var i = 0; i < allowedGuesses; i++) {
   }
   else {
     alert("Incorrect! You're guess was a little low. \nYou have " + (allowedGuesses - (i+1)) + " guesses remaining.");
+  }
+}
+
+var allowedGuesses = 6;
+var question6 = document.getElementById(6);
+for (var i = 0; i < allowedGuesses; i++) {
+  var userGuess = prompt(question6.textContent).toLowerCase();
+  if (correctAnswers[5].indexOf(userGuess) === -1) {
+    alert("Incorrect! I've never been to " + userGuess + ".\nYou have "+ (allowedGuesses-1) + " guesses remaining.");
+  }
+  else {
+    alert("Correct! I have travelled to " + userGuess + ".");
+    correct += 1;
+    break;
   }
 }
