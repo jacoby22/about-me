@@ -13,6 +13,7 @@ var answers = [];
 var correct = 0;
 // prompt the user for his/her name for personalization later
 var userName = prompt("What's your name?");
+answers.push(userName);
 //loop through each html id and prompt its question
 for (var i = 1; i < 5; i++) {
   var question = document.getElementById(""+i+"");
@@ -27,7 +28,7 @@ for (var i = 1; i < 5; i++) {
 //alert user if response is incorrect
     alert("Sorry, that's not correct! Come on " + userName + "!");
 //store response value
-    answers[i-1] = answer;
+    answers.push(answer);
   }
   else {
 //alert user if response is correct
@@ -43,6 +44,7 @@ var question5 = document.getElementById(5);
 for (var i = 0; i < allowedGuesses; i++) {
 //cast user input into an integer for comparing against stored correct int value
   var userGuess = parseInt(prompt(question5.textContent));
+  answers.push(userGuess);
 //check if user guess is equal to stored array value
   if (userGuess === correctAnswers[4][0]) {
     alert("Correct! You have guessed the magic number.")
@@ -59,11 +61,13 @@ for (var i = 0; i < allowedGuesses; i++) {
     alert("Incorrect! You're guess was a little low. \nYou have " + (allowedGuesses - (i+1)) + " guesses remaining.");
   }
 }
-
+//store a new value for allowedGuesses for question 6
 var allowedGuesses = 6;
 var question6 = document.getElementById(6);
 for (var i = 0; i < allowedGuesses; i++) {
+//get user input and force it to lower case to match array answers
   var userGuess = prompt(question6.textContent).toLowerCase();
+  answers.push(userGuess);
   if (correctAnswers[5].indexOf(userGuess) === -1) {
     alert("Incorrect! I've never been to " + userGuess + ".\nYou have "+ (allowedGuesses - (i+1)) + " guesses remaining.");
   }
@@ -73,4 +77,9 @@ for (var i = 0; i < allowedGuesses; i++) {
     break;
   }
 }
+console.log(answers);
+console.log(correct);
+//tell user possible answers they could have chosen
 alert("These are the states you could have selected:\n" + correctAnswers[5]);
+//tell user how many they were able to answer correctly and thank them by name for playing the game
+alert("You were able to get " + correct + " answers correct. \nThanks for playing " + userName + "!");
