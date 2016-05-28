@@ -4,9 +4,10 @@ var correctAnswers = ["yes", "y", "no", "n", "no", "n", "no", "n"];
 // Creates array of all user answers
 var answers = [];
 var correct = 0;
+// prompt the user for his/her name for personalization later
 var userName = prompt("What's your name?");
 //loop through each html id and prompt its question
-for (i = 1; i < 5; i++) {
+for (var i = 1; i < 5; i++) {
   var question = document.getElementById(""+i+"");
 //store user input as lowercase via a prompt window
   answer = prompt(question.textContent).toLowerCase();
