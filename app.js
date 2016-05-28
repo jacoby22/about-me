@@ -16,7 +16,11 @@ for (var i = 1; i < correctAnswers.length+1; i++) {
   var question = document.getElementById(""+i+"");
 //store user input as lowercase via a prompt window
   answer = prompt(question.textContent).toLowerCase();
-//check to see if user input is correct
+//logs user answer for debugging code
+  console.log(answer);
+//logs array of possible answers for debugging code
+  console.log(correctAnswers[i]);
+//check to see if user input is one of possible correct answers
   if (correctAnswers[i-1].indexOf(answer) === -1) {
 //alert user if response is incorrect
     alert("Sorry, that's not correct! Come on " + userName + "!");
