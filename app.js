@@ -6,7 +6,7 @@ var correctAnswers = [
                       ["no", "n"],
                       ["no", "n"],
                       [47],
-                      ["washington", "california", "idaho", "florida", "illinois", "oregon"]
+                      ["washington", " california", " idaho", " florida", " illinois", " oregon"]
                                   ];
 // Creates array of all user answers
 var answers = [];
@@ -65,7 +65,7 @@ var question6 = document.getElementById(6);
 for (var i = 0; i < allowedGuesses; i++) {
   var userGuess = prompt(question6.textContent).toLowerCase();
   if (correctAnswers[5].indexOf(userGuess) === -1) {
-    alert("Incorrect! I've never been to " + userGuess + ".\nYou have "+ (allowedGuesses-1) + " guesses remaining.");
+    alert("Incorrect! I've never been to " + userGuess + ".\nYou have "+ (allowedGuesses - (i+1)) + " guesses remaining.");
   }
   else {
     alert("Correct! I have travelled to " + userGuess + ".");
@@ -73,3 +73,4 @@ for (var i = 0; i < allowedGuesses; i++) {
     break;
   }
 }
+alert("These are the states you could have selected:\n" + correctAnswers[5]);
