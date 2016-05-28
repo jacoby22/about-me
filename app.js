@@ -36,15 +36,21 @@ for (var i = 1; i < 5; i++) {
     correct += 1;
   }
 }
+//variable for storing the allowable number of user guesses
 var allowedGuesses = 4;
 var question5 = document.getElementById(""+i+"");
 for (var i = 0; i < allowedGuesses; i++) {
+//cast user input into an integer for comparing against stored correct int value
   var userGuess = parseInt(prompt(question5.textContent));
+//check if user guess is equal to stored array value
   if (userGuess === correctAnswers[4][0]) {
     alert("Correct! You have guessed the magic number.")
     correct += 1;
     break;
+//console log the user's guess for easier debugging
+  console.log(userGuess);
   }
+//check if user guess is higher than stored correct int value
   else if (userGuess > correctAnswers[4][0]){
     alert("Incorrect! You're guess was a little high. \nYou have " + (allowedGuesses - (i+1)) + " guesses remaining.");
   }
