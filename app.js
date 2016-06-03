@@ -47,28 +47,31 @@ function askYorNoQuestions() {
 }
 askYorNoQuestions();
 //variable for storing the allowable number of user guesses
-var allowedGuesses = 4;
-var question5 = document.getElementById(5);
-for (var j = 0; j < allowedGuesses; j++) {
-//cast user input into an integer for comparing against stored correct int value
-  var userGuess = parseInt(prompt(question5.textContent));
-  answers.push(userGuess);
-//check if user guess is equal to stored array value
-  if (userGuess === correctAnswers[4][0]) {
-    alert('Correct! You have guessed the magic number.');
-    correct += 1;
-    break;
-//console log the user's guess for easier debugging
-    console.log(userGuess);
-  }
-//check if user guess is higher than stored correct int value
-  else if (userGuess > correctAnswers[4][0]){
-    alert('Incorrect! You\'re guess was a little high. \nYou have ' + (allowedGuesses - (j + 1)) + ' guesses remaining.');
-  }
-  else {
-    alert('Incorrect! You\'re guess was a little low. \nYou have ' + (allowedGuesses - (j + 1)) + ' guesses remaining.');
+
+function guessingGameQuestions(allowedGuesses) {
+  var question5 = document.getElementById(5);
+  for (var j = 0; j < allowedGuesses; j++) {
+  //cast user input into an integer for comparing against stored correct int value
+    var userGuess = parseInt(prompt(question5.textContent));
+    answers.push(userGuess);
+  //check if user guess is equal to stored array value
+    if (userGuess === correctAnswers[4][0]) {
+      alert('Correct! You have guessed the magic number.');
+      correct += 1;
+      break;
+  //console log the user's guess for easier debugging
+      console.log(userGuess);
+    }
+  //check if user guess is higher than stored correct int value
+    else if (userGuess > correctAnswers[4][0]){
+      alert('Incorrect! You\'re guess was a little high. \nYou have ' + (allowedGuesses - (j + 1)) + ' guesses remaining.');
+    }
+    else {
+      alert('Incorrect! You\'re guess was a little low. \nYou have ' + (allowedGuesses - (j + 1)) + ' guesses remaining.');
+    }
   }
 }
+guessingGameQuestions(4);
 //store a new value for allowedGuesses for question 6
 var allowedGuesses2 = 6;
 var question6 = document.getElementById(6);
