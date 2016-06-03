@@ -45,7 +45,7 @@ function askYorNoQuestions() {
     }
   }
 }
-askYorNoQuestions();
+
 //variable for storing the allowable number of user guesses
 
 function guessingGameQuestions(allowedGuesses) {
@@ -71,26 +71,31 @@ function guessingGameQuestions(allowedGuesses) {
     }
   }
 }
-guessingGameQuestions(4);
+
 //store a new value for allowedGuesses for question 6
-var allowedGuesses2 = 6;
-var question6 = document.getElementById(6);
-for (var k = 0; k < allowedGuesses2; k++) {
-//get user input and force it to lower case to match array answers
-  var userGuess2 = prompt(question6.textContent).toLowerCase();
-  answers.push(userGuess2);
-  if (correctAnswers[5].indexOf(userGuess2) === -1) {
-    alert('Incorrect! I\'ve never been to ' + userGuess2 + '.\nYou have ' + (allowedGuesses2 - (k + 1)) + ' guesses remaining.');
-  }
-  else {
-    alert('Correct! I have travelled to ' + userGuess2 + '.');
-    correct += 1;
-    break;
+
+function statesGameQuestions(allowedGuesses2) {
+  var question6 = document.getElementById(6);
+  for (var k = 0; k < allowedGuesses2; k++) {
+  //get user input and force it to lower case to match array answers
+    var userGuess2 = prompt(question6.textContent).toLowerCase();
+    answers.push(userGuess2);
+    if (correctAnswers[5].indexOf(userGuess2) === -1) {
+      alert('Incorrect! I\'ve never been to ' + userGuess2 + '.\nYou have ' + (allowedGuesses2 - (k + 1)) + ' guesses remaining.');
+    }
+    else {
+      alert('Correct! I have travelled to ' + userGuess2 + '.');
+      correct += 1;
+      break;
+    }
   }
 }
-console.log(answers);
-console.log(correct);
+
 //tell user possible answers they could have chosen
 alert('These are the states you could have selected:\n' + correctAnswers[5]);
 //tell user how many they were able to answer correctly and thank them by name for playing the game
 alert('You were able to get ' + correct + ' answers correct. \nThanks for playing ' + userName + '!');
+//call functions in order intended occurrence for website
+askYorNoQuestions();
+guessingGameQuestions(4);
+statesGameQuestions(6);
