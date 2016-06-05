@@ -5,7 +5,17 @@ var correctAnswers = [['yes', 'y'],
                       ['no', 'n'],
                       ['no', 'n'],
                       [47],
-                      ['washington', ' california', ' idaho', ' florida', ' illinois', ' oregon']];
+                      ['washington', 'california', 'idaho', 'florida', 'illinois', 'oregon']];
+var statesVisisted = '';
+for (var h = 0; h < correctAnswers[5].length; h++) {
+  if (h < correctAnswers[5].length - 1) {
+    statesVisisted += correctAnswers[5][h] + ', ';
+  }
+  else {
+    statesVisisted += correctAnswers[5][h];
+  }
+}
+
 
 // Creates array of all user answers
 var responses = [];
@@ -86,6 +96,6 @@ askYorNoQuestions();
 guessingGameQuestions(4);
 statesGameQuestions(6);
 //tell user possible answers they could have chosen
-alert('These are the states you could have selected:\n' + correctAnswers[5]);
+alert('These are the states you could have selected:\n' + statesVisisted);
 //tell user how many they were able to answer correctly and thank them by name for playing the game
 alert('You were able to get ' + correct + ' answers correct. \nThanks for playing ' + userName + '!');
